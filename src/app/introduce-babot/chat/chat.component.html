@@ -1,0 +1,21 @@
+<div>
+
+  <div #chatsContainer>
+    <div *ngFor="let msg of messages" [class]="(msg.userIndex==userIndex)?'usersMessage':'othersMessage'">
+      <img [src]="msg.userAvatar">
+      <div>{{msg.message}}</div>
+      <div>
+        <small>{{msg.time}}</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="status">
+    <small>{{status}}</small>
+  </div>
+
+  <div>
+    <input type="text" [value]="chatText" (input)="chatText = $event.target.value" placeholder="placeHolder"/>
+    <button (click)="sendChat">Send</button>
+  </div>
+</div>
