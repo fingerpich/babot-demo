@@ -1,0 +1,44 @@
+form{
+  display: flex;
+  flex-direction: row;
+  input{
+    flex: 1 1 auto;
+    height:2rem;
+  }
+  button{
+    padding:0.2rem 1rem;
+  }
+}
+.status{
+  height:20px;
+}
+.chatContainer{
+  max-height:200px;
+  overflow: auto;
+  .msg{
+    clear:both;
+    overflow: hidden;
+    img{
+      width: 15px;
+      height: 15px;
+      margin: 6px 3px;
+      float: left;
+    }
+    .content{
+      background: #07f;
+      color: white;
+      padding: 2px 15px;
+      margin: 4px;
+      float: left;
+      border-radius: 15px;
+      font-size: 0.85rem;
+    }
+    &.usersMessage{
+      img{float:right}
+      .content{float:right}
+    }
+    &.othersMessage{
+
+    }
+  }
+}

@@ -1,9 +1,21 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import { trigger, state, style, animate, transition} from '@angular/animations';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.scss']
+  styleUrls: ['./chat.component.scss'],
+  animations: [
+    trigger('msgAnim', [
+      transition('void => *', [
+        style({transform: 'translateX(-100%)'}),
+        animate(100)
+      ]),
+      transition('* => void', [
+        animate(100, style({transform: 'translateX(100%)'}))
+      ])
+    ])
+  ]
 })
 export class ChatComponent implements OnInit {
   @ViewChild('chatsContainer') private chatsContainer: ElementRef;
@@ -43,7 +55,7 @@ export class ChatComponent implements OnInit {
       {
         userIndex:1,
         message:this.chatText,
-        userAvatar:this.users[0].avatar
+        userAvatar:this.users[1].avatar
       }
     );
     this.status="bot is typing";
@@ -65,8 +77,8 @@ export class ChatComponent implements OnInit {
           userAvatar:this.users[0].avatar
         }
       );
-      if(this.messages.length>4){
-        this.messages.splice(0,1);
+      if(this.messages.length>20){
+        this.messages.splice(0,3);
       }
     },500)
   }
