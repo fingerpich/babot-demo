@@ -1,15 +1,31 @@
-<div>
-  <p>
-    This bot is created by babot service to answer your question about babot service.
-  </p>
-  <p>
-    you could make your bot to answer your users.
-  </p>
-  <p>
-    your bot could work on telegram and filan messanger or web.
-  </p>
-</div>
-<div>babot service</div>
-<div>
-  <app-chat></app-chat>
+<div class="wholePage">
+  <div class="container">
+    <div class="describe">
+      <div class="words">
+        <p [hidden]="wordsSelector%3!=0">
+          This bot is created by babot service to answer your question about babot service.
+        </p>
+        <p [hidden]="wordsSelector%3!=1">
+          you could make your bot to answer your users.
+        </p>
+        <p [hidden]="wordsSelector%3!=2">
+          your bot could work on telegram and filan messanger or web.
+        </p>
+      </div>
+      <div class="subscribeForm">
+        <h3>Are you interested?</h3>
+        <span>enter your email address to inform you about this project</span>
+        <form>
+          <input type="text" (input)="userEmail = $event.target.value" placeholder="email"/>
+          <button type="submit" (click)="sendEmailToSubscribe()">Send</button>
+        </form>
+      </div>
+    </div>
+    <div >
+      <img src="assets/BotFather.png">
+    </div>
+    <div class="chat">
+      <app-chat></app-chat>
+    </div>
+  </div>
 </div>
