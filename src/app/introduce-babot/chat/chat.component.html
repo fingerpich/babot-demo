@@ -1,4 +1,4 @@
-<div>
+<div class="chatbox">
 
   <div #chatsContainer class="chatContainer">
     <div *ngFor="let msg of messages" [@msgAnim] [class]="'msg ' + ((msg.userIndex==userIndex)?'usersMessage':'othersMessage')">
@@ -15,7 +15,7 @@
   </div>
 
   <form>
-    <input type="text" [value]="chatText" (input)="chatText = $event.target.value" placeholder="placeHolder"/>
+    <input type="text" [value]="chatText" (input)="chatText = $event.target.value" [placeholder]="placeHolder"/>
     <button type="submit" (click)="sendChat()">Send</button>
   </form>
 </div>

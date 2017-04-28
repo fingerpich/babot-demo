@@ -1,44 +1,69 @@
-form{
+.chatbox {
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  input{
-    flex: 1 1 auto;
-    height:2rem;
+  flex-direction: column;
+  form {
+    flex: 0 0 45px;
+    margin: 10px 15px;
+    display: flex;
+    flex-direction: row;
+    input{
+      flex: 1 1 auto;
+      padding: 10px;
+      border: 1px solid #ddd;
+      outline: 0;
+      border-top-left-radius: 3px ;
+      border-bottom-left-radius: 3px ;
+      -moz-border-radius-topleft: 3px;
+      -moz-border-radius-bottomleft: 3px;
+    }
+    button{
+      padding: 10px;
+      border:1px solid #ddd;
+      background: #eee;
+      border-top-right-radius: 3px ;
+      border-bottom-right-radius: 3px ;
+      -moz-border-radius-topright: 3px;
+      -moz-border-radius-bottomright: 3px;
+      color:#555;
+    }
   }
-  button{
-    padding:0.2rem 1rem;
+  .status {
+    flex:0 1 20px;
+    height:20px;
   }
-}
-.status{
-  height:20px;
-}
-.chatContainer{
-  max-height:200px;
-  overflow: auto;
-  .msg{
-    clear:both;
-    overflow: hidden;
-    img{
-      width: 15px;
-      height: 15px;
-      margin: 6px 3px;
-      float: left;
-    }
-    .content{
-      background: #07f;
-      color: white;
-      padding: 2px 15px;
-      margin: 4px;
-      float: left;
-      border-radius: 15px;
-      font-size: 0.85rem;
-    }
-    &.usersMessage{
-      img{float:right}
-      .content{float:right}
-    }
-    &.othersMessage{
+  .chatContainer {
+    flex:1 1 auto;
+    overflow: auto;
+    .msg {
+      clear: both;
+      overflow: hidden;
+      img {
+        width: 15px;
+        height: 15px;
+        margin: 6px 3px;
+        float: left;
+      }
+      .content {
+        background: #07f;
+        color: white;
+        padding: 2px 15px;
+        margin: 4px;
+        float: left;
+        border-radius: 15px;
+        font-size: 0.85rem;
+      }
+      &.usersMessage {
+        img {
+          float: right
+        }
+        .content {
+          float: right
+        }
+      }
+      &.othersMessage {
 
+      }
     }
   }
 }

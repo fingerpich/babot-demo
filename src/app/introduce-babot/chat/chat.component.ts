@@ -22,6 +22,7 @@ export class ChatComponent implements OnInit {
 
   chatText:string="";
   status:string="";
+  placeHolder:string="chat with bot";
 
   userIndex=1;
   users=[
@@ -58,6 +59,7 @@ export class ChatComponent implements OnInit {
         userAvatar:this.users[1].avatar
       }
     );
+
     this.status="bot is typing";
     this.chatText="";
 
