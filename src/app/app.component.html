@@ -1,2 +1,2 @@
-<app-start-page *ngIf="!state" (onclick)="letsIntroduceService()"></app-start-page>
-<app-introduce-babot *ngIf="state"></app-introduce-babot>
+<app-start-page [hidden]="state" (onclick)="letsIntroduceService()"></app-start-page>
+<app-introduce-babot [hidden]="!state"></app-introduce-babot>
