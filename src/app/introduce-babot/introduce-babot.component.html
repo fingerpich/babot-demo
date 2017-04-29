@@ -2,15 +2,7 @@
   <div class="container">
     <div class="describe">
       <div class="words">
-        <p [hidden]="wordsSelector%3!=0">
-          This bot is created by babot service to answer your question about babot service.
-        </p>
-        <p [hidden]="wordsSelector%3!=1">
-          you could make your bot to answer your users.
-        </p>
-        <p [hidden]="wordsSelector%3!=2">
-          your bot could work on telegram and filan messanger or web.
-        </p>
+        <app-paragraphs-typist [paragraphs]="paragraphs" interval="3000"></app-paragraphs-typist>
       </div>
       <div class="subscribeForm">
         <h3>Are you interested?</h3>

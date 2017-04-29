@@ -10,7 +10,11 @@ export class IntroduceBabotComponent implements OnInit {
 
   constructor() {
   }
-
+  public paragraphs=[
+    "This bot has been created by babot service to answer your question about babot service.",
+    "you could make your bot to answer your users.",
+    "your bot could work on telegram and filan messanger or web.",
+  ];
   private wordsSelector = 0;
 
   ngOnInit() {

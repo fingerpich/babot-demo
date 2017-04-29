@@ -1,9 +1,10 @@
 <div class="chatbox">
 
   <div #chatsContainer class="chatContainer">
-    <div *ngFor="let msg of messages" [@msgAnim] [class]="'msg ' + ((msg.userIndex==userIndex)?'usersMessage':'othersMessage')">
+    <div *ngFor="let msg of messages" [@msgAnim] [class]="'msg ' + (isChatterMessage(msg)?'usersMessage':'othersMessage')">
       <img [src]="msg.userAvatar">
-      <div class="content">{{msg.message}}</div>
+      <div *ngIf="isChatterMessage(msg)" class="content">{{msg.message}}</div>
+      <app-typist *ngIf="!isChatterMessage(msg)" [paragraph]="msg.message" time="2000"></app-typist>
       <div>
         <small>{{msg.time}}</small>
       </div>

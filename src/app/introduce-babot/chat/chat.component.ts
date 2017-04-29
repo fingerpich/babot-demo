@@ -35,6 +35,10 @@ export class ChatComponent implements OnInit {
     {userIndex:1,message:"hello",userAvatar:this.users[1].avatar},
     {userIndex:0,message:"tell me what you want to know about babot service?",userAvatar:this.users[0].avatar}
   ];
+
+  isChatterMessage(msg){
+    return msg.userIndex==this.userIndex;
+  }
   constructor() { }
 
   ngOnInit() {
@@ -69,13 +73,6 @@ export class ChatComponent implements OnInit {
         {
           userIndex:0,
           message:"I don't know, I will ask the owner and answer you later",
-          userAvatar:this.users[0].avatar
-        }
-      );
-      this.messages.push(
-        {
-          userIndex:0,
-          message:"have you other question?",
           userAvatar:this.users[0].avatar
         }
       );
