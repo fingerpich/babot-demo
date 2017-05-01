@@ -11,6 +11,7 @@
           <input type="text" (input)="userEmail = $event.target.value" placeholder="email"/>
           <button type="submit" (click)="sendEmailToSubscribe()">Send</button>
         </form>
+        <div *ngIf="emailHasSent"><small>thank you. we will send you the news about it.</small></div>
       </div>
     </div>
     <div >

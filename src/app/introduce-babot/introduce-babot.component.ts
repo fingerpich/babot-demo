@@ -34,9 +34,12 @@ export class IntroduceBabotComponent implements OnInit {
       );
   }
 
-  public userEmail:string = ""
+  public userEmail:string = "";
 
+  public emailHasSent = false;
   sendEmailToSubscribe() {
-
+    setTimeout(()=>{
+      this.emailHasSent = true;
+    },300);
   }
 }
