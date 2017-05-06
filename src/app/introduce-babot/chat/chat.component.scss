@@ -45,24 +45,25 @@
         float: left;
       }
       .content {
-        background: #07f;
-        color: white;
         padding: 2px 15px;
         margin: 4px;
         float: left;
         border-radius: 15px;
         font-size: 0.85rem;
       }
-      &.usersMessage {
-        img {
-          float: right
-        }
+      .usersMessage {
+        //img {
+        //  float: right
+        //}
+        background: #07f;
+        color: white;
         .content {
           float: right
         }
       }
-      &.othersMessage {
-
+      .othersMessage {
+        background: #ddd;
+        color: #333;
       }
     }
   }
