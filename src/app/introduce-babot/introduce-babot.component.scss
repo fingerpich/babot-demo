@@ -4,6 +4,7 @@
   justify-content: center;
   position: fixed;
   height:100%;
+  width: 100%;
   .container {
     display: flex;
     flex: 0 0 50%;
@@ -54,6 +55,17 @@
     }
     .chat{
       flex:1 1 40%;
+      .phone{
+        width: 300px;
+        height:550px;
+        margin: auto;
+        border: 10px solid #cccccc;
+        border-radius: 16px;
+        .phoneHead{
+          padding:5px;
+          background: #ccc;
+        }
+      }
     }
   }
   @media only screen and (max-width: 500px) {
