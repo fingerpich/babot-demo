@@ -1,3 +1,7 @@
+:host{
+  height:100%;
+  position: absolute;
+}
 .chatbox {
   height: 100%;
   overflow: auto;
@@ -35,7 +39,8 @@
   }
   .chatContainer {
     flex:1 1 auto;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     .msg {
       clear: both;
       overflow: hidden;
