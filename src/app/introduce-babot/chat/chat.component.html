@@ -1,17 +1,20 @@
 <div class="chatbox">
 
   <div #chatsContainer class="chatContainer">
-    <div *ngFor="let msg of messages" [@msgAnim] class="msg">
+    <div class="conversation-start">
+      <span>Today, 6:48 AM</span>
+    </div>
+    <div *ngFor="let msg of messages" [@msgAnim] class="bubble">
+      <img [src]="msg.userAvatar" [class]="isChatterMessage(msg)?'me':'you'">
 
-      <div *ngIf="isChatterMessage(msg)" class="usersMessage">
+      <div *ngIf="isChatterMessage(msg)" class="talk-bubble me">
         <div class="content">{{msg.message}}</div>
         <div><small>{{msg.time}}</small></div>
       </div>
 
-      <div *ngIf="!isChatterMessage(msg)" class="'othersMessage'">
-        <img [src]="msg.userAvatar">
+      <div *ngIf="!isChatterMessage(msg)" class="talk-bubble you">
         <app-typist [paragraph]="msg.message" time="2000"></app-typist>
-        <div><small>{{msg.time}}</small></div>
+        <!--<div><small>{{msg.time}}</small></div>-->
       </div>
 
     </div>

@@ -20,24 +20,24 @@ import { trigger, state, style, animate, transition} from '@angular/animations';
 export class ChatComponent implements OnInit {
   @ViewChild('chatsContainer') private chatsContainer: ElementRef;
 
-  chatText:string="";
-  status:string="";
-  placeHolder:string="chat with bot";
+  chatText:string = '';
+  status:string = '';
+  placeHolder:string = 'chat with bot';
 
   userIndex=1;
   users=[
-    {name:"Bot",avatar:"assets/bot.png"},
-    {name:"MZ",avatar:"assets/user.png"}
+    {name: 'Bot', avatar: 'assets/bot.png'},
+    {name: 'MZ', avatar: 'assets/user.png'}
   ];
 
-  messages:[Object]=[
-    {userIndex:0,message:"hello",userAvatar:this.users[0].avatar},
-    {userIndex:1,message:"hello",userAvatar:this.users[1].avatar},
-    {userIndex:0,message:"tell me what you want to know about babot service?",userAvatar:this.users[0].avatar}
+  messages:[Object] = [
+    {userIndex: 0, message: 'hello', userAvatar: this.users[0].avatar},
+    {userIndex: 1, message: 'hello', userAvatar: this.users[1].avatar},
+    {userIndex: 0, message: 'tell me what you want to know about babot service?', userAvatar: this.users[0].avatar}
   ];
 
-  isChatterMessage(msg){
-    return msg.userIndex==this.userIndex;
+  isChatterMessage(msg) {
+    return msg.userIndex === this.userIndex;
   }
   constructor() { }
 
@@ -56,29 +56,31 @@ export class ChatComponent implements OnInit {
   }
 
   sendChat() {
-    this.messages.push(
-      {
-        userIndex:1,
-        message:this.chatText,
-        userAvatar:this.users[1].avatar
-      }
-    );
-
-    this.status="bot is typing";
-    this.chatText="";
-
-    setTimeout(()=>{
-      this.status="";
+    if (this.chatText.length) {
       this.messages.push(
         {
-          userIndex:0,
-          message:"I don't know, I will ask the owner and answer you later",
-          userAvatar:this.users[0].avatar
+          userIndex: 1,
+          message: this.chatText,
+          userAvatar: this.users[1].avatar
         }
       );
-      if(this.messages.length>20){
-        this.messages.splice(0,3);
-      }
-    },500)
+
+      this.status = 'bot is typing';
+      this.chatText = '';
+
+      setTimeout(() => {
+        this.status = '';
+        this.messages.push(
+          {
+            userIndex: 0,
+            message: "I don't know, I will ask the owner and answer you later",
+            userAvatar: this.users[0].avatar
+          }
+        );
+        if (this.messages.length > 20) {
+          this.messages.splice(0, 3);
+        }
+      }, 500);
+    }
   }
 }
