@@ -1,10 +1,15 @@
+<canvas></canvas>
 <div class="wholePage">
   <div class="container">
     <div class="describe">
       <div class="words">
         <!--<app-paragraphs-typist [paragraphs]="paragraphs" interval="3000"></app-paragraphs-typist>-->
       </div>
-      <div class="subscribeForm">
+      <div class="flag" *ngIf="!showSubscribeForm" (click)="showSubscribeForm=true;">
+        <h3>Are you interested In?</h3>
+        <small>Do you want a bot for your business?</small>
+      </div>
+      <div class="subscribeForm" *ngIf="showSubscribeForm">
         <h3>Are you interested?</h3>
         <span>enter your email address to inform you about this project</span>
         <form>
@@ -14,9 +19,9 @@
         <div *ngIf="emailHasSent"><small>thank you. we will send you the news about it.</small></div>
       </div>
     </div>
-    <div >
-      <img src="assets/BotFather.png">
-    </div>
+    <!--<div class="botLogo">-->
+      <!--<img src="assets/BotFather.png">-->
+    <!--</div>-->
     <div class="chat">
       <div class="phone">
         <div class="phoneHead">

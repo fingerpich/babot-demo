@@ -4,9 +4,12 @@
 }
 .chatbox {
   height: 100%;
+  background: rgba(0,5,50,0.66);
   overflow: auto;
   display: flex;
   flex-direction: column;
+  $textColor:rgba(255,255,255,0.9);
+  $borderColor:rgba(255,255,255,0.4);
   form {
     flex: 0 0 35px;
     margin: 1px;
@@ -16,27 +19,34 @@
     input {
       flex: 1 1 auto;
       padding: 10px;
-      border: 1px solid #ddd;
+      border: 1px solid $borderColor;
+      border-right: none;
       outline: 0;
       border-top-left-radius: 3px ;
       border-bottom-left-radius: 3px ;
       -moz-border-radius-topleft: 3px;
       -moz-border-radius-bottomleft: 3px;
+      background: none;
+      color:$textColor
     }
     button {
       padding: 10px;
-      border:1px solid #ddd;
-      background: #eee;
+      border:1px solid $borderColor;
+      background: rgba(255,255,255,0.3);
       border-top-right-radius: 3px ;
       border-bottom-right-radius: 3px ;
       -moz-border-radius-topright: 3px;
       -moz-border-radius-bottomright: 3px;
-      color:#555;
+      color:$textColor;
     }
   }
   .status {
-    flex:0 1 20px;
-    height:20px;
+    height: 20px;
+    position: absolute;
+    bottom: 35px;
+    z-index: 1;
+    width: 100%;
+    color:$textColor;
   }
   .chatContainer {
     flex:1 1 auto;
@@ -51,7 +61,7 @@
       span {
         font-size: 14px;
         display: inline-block;
-        color: #999;
+        color: $textColor;
         &:before,&:after {
           position: absolute;
           top: 10px;
@@ -59,7 +69,7 @@
           width: 30%;
           height: 1px;
           content: '';
-          background-color: #eee;
+          background-color: rgba(255,255,255,0.2);
         }
         &:before {
           left: 0;
@@ -69,10 +79,10 @@
         }
       }
     }
-    $meBack:#07f;
+    $meBack:rgba(100,100,255,0.2);;
     $meColor:#fff;
-    $youBack:#eee;
-    $youColor:#555;
+    $youBack:rgba(255,255,255,0.2);
+    $youColor:#fff;
     .bubble {
       clear:both;
       overflow: hidden;

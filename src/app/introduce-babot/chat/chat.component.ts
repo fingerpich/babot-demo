@@ -31,9 +31,9 @@ export class ChatComponent implements OnInit {
   ];
 
   messages:[Object] = [
-    {userIndex: 0, message: 'hello', userAvatar: this.users[0].avatar},
-    {userIndex: 1, message: 'hello', userAvatar: this.users[1].avatar},
-    {userIndex: 0, message: 'tell me what you want to know about babot service?', userAvatar: this.users[0].avatar}
+    {userIndex: 0, message: 'سلام، من یک بات هستم', userAvatar: this.users[0].avatar},
+    {userIndex: 0, message: 'من ایجاد شده ام تا به سوالات شما در مورد این سرویس پاسخ دهم', userAvatar: this.users[0].avatar},
+    {userIndex: 0, message: 'هر سوالی در مورد این سرویس دارید بپرسید?', userAvatar: this.users[0].avatar}
   ];
 
   isChatterMessage(msg) {
@@ -65,7 +65,7 @@ export class ChatComponent implements OnInit {
         }
       );
 
-      this.status = 'bot is typing';
+      this.status = 'bot is thinking';
       this.chatText = '';
 
       setTimeout(() => {
