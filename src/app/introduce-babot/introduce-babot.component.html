@@ -1,22 +1,25 @@
-<canvas></canvas>
+<canvas #canvas width="100%" height="100%"></canvas>
 <div class="wholePage">
   <div class="container">
     <div class="describe">
       <div class="words">
         <!--<app-paragraphs-typist [paragraphs]="paragraphs" interval="3000"></app-paragraphs-typist>-->
       </div>
-      <div class="flag" *ngIf="!showSubscribeForm" (click)="showSubscribeForm=true;">
-        <h3>Are you interested In?</h3>
-        <small>Do you want a bot for your business?</small>
-      </div>
-      <div class="subscribeForm" *ngIf="showSubscribeForm">
-        <h3>Are you interested?</h3>
-        <span>enter your email address to inform you about this project</span>
-        <form>
-          <input type="text" (input)="userEmail = $event.target.value" placeholder="email"/>
-          <button type="submit" (click)="sendEmailToSubscribe()">Send</button>
-        </form>
-        <div *ngIf="emailHasSent"><small>thank you. we will send you the news about it.</small></div>
+      <div class="flag">
+        <div *ngIf="!showSubscribeForm" (click)="showSubscribeForm=true;">
+          <h5>آیا علاقه مند شدید؟</h5>
+          <small>شما هم به چنین باتی نیاز دارید؟</small>
+        </div>
+        <div class="subscribeForm" *ngIf="showSubscribeForm">
+          <span class="close" (click)="showSubscribeForm=false">x</span>
+          <p>لطفا ایمیل خود را وارد نمایید.</p>
+          <form>
+            <input type="text" (input)="userEmail = $event.target.value" placeholder="email"/>
+            <button type="submit" (click)="sendEmailToSubscribe()">ارسال</button>
+          </form>
+          <div *ngIf="emailHasSent"><small>با تشکر. شما به لیست علاقمندان اضافه شدید و اطلاعات جدید در اختیار شما قرار خواهد گرفت.</small></div>
+          <div class="contactUs"><small>babot@gmail.com</small></div>
+        </div>
       </div>
     </div>
     <!--<div class="botLogo">-->

@@ -31,8 +31,8 @@ export class ChatComponent implements OnInit {
   ];
 
   messages:[Object] = [
-    {userIndex: 0, message: 'سلام، من یک بات هستم', userAvatar: this.users[0].avatar},
-    {userIndex: 0, message: 'من ایجاد شده ام تا به سوالات شما در مورد این سرویس پاسخ دهم', userAvatar: this.users[0].avatar},
+    {userIndex: 0, message: 'سلام، من یک بات هستم که با سرویس بابات ایجاد شده ام.', userAvatar: this.users[0].avatar},
+    {userIndex: 0, message: 'وظیفه من پاسخ به سوالات شما در مورد این سرویس هست.', userAvatar: this.users[0].avatar},
     {userIndex: 0, message: 'هر سوالی در مورد این سرویس دارید بپرسید?', userAvatar: this.users[0].avatar}
   ];
 
@@ -46,7 +46,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngAfterViewChecked() {
-    this.scrollToBottom();
+    // this.scrollToBottom();
   }
 
   scrollToBottom(): void {
@@ -64,22 +64,30 @@ export class ChatComponent implements OnInit {
           userAvatar: this.users[1].avatar
         }
       );
-
+      this.scrollToBottom();
       this.status = 'bot is thinking';
       this.chatText = '';
 
+      setTimeout(()=>{
+        this.scrollToBottom();
+      },10);
       setTimeout(() => {
         this.status = '';
         this.messages.push(
           {
             userIndex: 0,
-            message: "I don't know, I will ask the owner and answer you later",
+            message: "جواب این سوالتونو نمیدونم ولی سوالتونو گزارش میدم.لطفا ایمیل خودتونو برای ارسال جواب وارد کنید؟",
             userAvatar: this.users[0].avatar
           }
         );
         if (this.messages.length > 20) {
           this.messages.splice(0, 3);
         }
+
+        setTimeout(()=>{
+          this.scrollToBottom();
+        },10);
+        this.scrollToBottom();
       }, 500);
     }
   }

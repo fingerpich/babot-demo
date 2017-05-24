@@ -13,7 +13,8 @@
       </div>
 
       <div *ngIf="!isChatterMessage(msg)" class="talk-bubble you">
-        <app-typist [paragraph]="msg.message" time="2000"></app-typist>
+        <!--<app-typist [paragraph]="msg.message" time="2000"></app-typist>-->
+        <div class="content">{{msg.message}}</div>
         <!--<div><small>{{msg.time}}</small></div>-->
       </div>
 

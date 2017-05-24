@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import {Observable} from "rxjs/Rx";
 import set = Reflect.set;
 
@@ -8,8 +8,8 @@ import set = Reflect.set;
   styleUrls: ['./introduce-babot.component.scss']
 })
 export class IntroduceBabotComponent implements OnInit {
-
-  constructor() {
+  @ViewChild("canvas") canvas;
+  constructor(private element:ElementRef) {
   }
   public paragraphs=[
     "This bot has been created by babot service to answer your question about babot service.",
@@ -19,30 +19,31 @@ export class IntroduceBabotComponent implements OnInit {
   private wordsSelector = 0;
 
   ngOnInit() {
-    Observable
-      .interval(2000)
-      .timeInterval()
-      .subscribe(
-        (x) => {
-          this.wordsSelector = x.value;
-        },
-        function (err) {
-          console.log('Error: ' + err);
-        },
-        function () {
-          console.log('Completed');
-        }
-      );
+    // Observable
+    //   .interval(2000)
+    //   .timeInterval()
+    //   .subscribe(
+    //     (x) => {
+    //       this.wordsSelector = x.value;
+    //     },
+    //     function (err) {
+    //       console.log('Error: ' + err);
+    //     },
+    //     function () {
+    //       console.log('Completed');
+    //     }
+    //   );
     this.initCanvas();
   }
 
   initCanvas(){
-    const canvas=document.getElementsByTagName("canvas")[0];
+    const canvas = this.canvas.nativeElement;
+
     const ctx = canvas.getContext("2d");
 
     //making the canvas full screen
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+    canvas.height = document.body.clientHeight;
+    canvas.width = document.body.clientWidth;
     const binary = "1010100101010100001010101111010101011010101111101101";
     //converting the string into an array of single characters
     const binaryArray = binary.split("");

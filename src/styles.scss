@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+  height:100%;
+}
 body{
   margin:0;
+  height:100%;
+}
+
+@font-face {
+  font-family: "IRANSansWeb";
+  font-weight: 300;
+  src: url("assets/fonts/eot/IRANSansWeb.eot?#") format("eot"),
+  url("assets/fonts/woff2/IRANSansWeb.woff2") format("woff2"),
+  url("assets/fonts/woff/IRANSansWeb.woff") format("woff");
 }

@@ -1,6 +1,6 @@
 canvas{
   z-index: 1;
-  //position: fixed;
+  position: fixed;
   //width: 100%;
   //height:100%;
 }
@@ -30,21 +30,33 @@ canvas{
         top: 100px;
         z-index: 1;
         background: #ffffff;
-        padding: 12px 12px;
+        >div{
+          padding: 12px;
+        }
         border-radius: 12px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
-        h3{
+        font-family : 'IRANSansWeb';
+        line-height: 16px;
+        h5{
+          font-size: 12px;
           margin:0;
+        }
+        small{
+          font-size: 10px;
         }
       }
       .subscribeForm{
-        position:absolute;
-        left:0;
         width:300px;
         text-align: center;
+
         h3{margin: 0;color:#333}
-        span{color:#666}
+        p{
+          color:#666;
+          direction: rtl;
+          text-align:center;
+          font-size: 12px;
+        }
         form{
           padding:7px 0 0;
           input{
@@ -68,6 +80,17 @@ canvas{
             color:#777;
           }
         }
+        .contactUs{
+          padding:10px 0 0;
+          text-align: right;
+          color:#888;
+        }
+        .close{
+          position: absolute;
+          right: 12px;
+          top: 10px;
+          color: #aaa;
+        }
       }
     }
     .botLogo{
@@ -80,21 +103,22 @@ canvas{
     .chat{
       position: absolute;
       left:50%;
-      margin:-200px 0 0 -135px;
-      height:400px;
+      margin:-225px 0 0 -135px;
+      width:270px;
+      height:450px;
       //flex:1 1 40%;
       .phone{
-        width: 270px;
+        width: 100%;
         height: 100%;
+        background: $phoneColor;
+        padding: 0 3px;
         margin: auto;
         display:flex;
         flex-direction: column;
-        border:4px solid $phoneColor;
         border-radius: 15px;
         overflow: hidden;
         .phoneHead{
           padding:10px;
-          background: $phoneColor;
           .phoneEar{
             width: 50px;
             height: 5px;
@@ -109,7 +133,6 @@ canvas{
         }
         .phoneBottom{
           padding:6px 20px;
-          background: $phoneColor;
           .home{
             border-radius: 20px;
             width: 35px;
