@@ -19,7 +19,7 @@ import { trigger, state, style, animate, transition} from '@angular/animations';
 })
 export class ChatComponent implements OnInit {
   @ViewChild('chatsContainer') private chatsContainer: ElementRef;
-
+  @ViewChild('chatInput') chatInput;
   chatText:string = '';
   status:string = '';
   placeHolder:string = 'chat with bot';
@@ -27,12 +27,13 @@ export class ChatComponent implements OnInit {
   userIndex=1;
   users=[
     {name: 'Bot', avatar: 'assets/bot.png'},
-    {name: 'MZ', avatar: 'assets/user.png'}
+    {name: 'MZ', avatar: 'assets/question.png'}
   ];
+  chatStart = "بات بابات";
 
   messages:[Object] = [
-    {userIndex: 0, message: 'سلام، من یک بات هستم که با سرویس بابات ایجاد شده ام.', userAvatar: this.users[0].avatar},
-    {userIndex: 0, message: 'وظیفه من پاسخ به سوالات شما در مورد این سرویس هست.', userAvatar: this.users[0].avatar},
+    {userIndex: 0, message: 'سلام، من یک بات هستم که با سرویس بابات ایجاد شده ام.وظیفه من پاسخ به سوالات شما در مورد این سرویس هست.', userAvatar: this.users[0].avatar},
+    // {userIndex: 0, message: '', userAvatar: this.users[0].avatar},
     {userIndex: 0, message: 'هر سوالی در مورد این سرویس دارید بپرسید?', userAvatar: this.users[0].avatar}
   ];
 
@@ -42,17 +43,20 @@ export class ChatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.scrollToBottom();
-  }
-
-  ngAfterViewChecked() {
-    // this.scrollToBottom();
+    setTimeout(()=>{
+      this.scrollToBottom();
+      this.focus();
+    },200);
   }
 
   scrollToBottom(): void {
     try {
       this.chatsContainer.nativeElement.scrollTop = this.chatsContainer.nativeElement.scrollHeight;
     } catch(err) { }
+  }
+
+  focus(){
+    this.chatInput.nativeElement.focus();
   }
 
   sendChat() {

@@ -2,7 +2,7 @@
 
   <div #chatsContainer class="chatContainer">
     <div class="conversation-start">
-      <span>Today, 6:48 AM</span>
+      <span>{{chatStart}}</span>
     </div>
     <div *ngFor="let msg of messages" [@msgAnim] class="bubble">
       <img [src]="msg.userAvatar" [class]="isChatterMessage(msg)?'me':'you'">
@@ -26,7 +26,7 @@
   </div>
 
   <form>
-    <input type="text" [value]="chatText" (input)="chatText = $event.target.value" [placeholder]="placeHolder"/>
-    <button type="submit" (click)="sendChat()">Send</button>
+    <input #chatInput type="text" [value]="chatText" (input)="chatText = $event.target.value" [placeholder]="placeHolder"/>
+    <button type="submit" (click)="sendChat()">ارسال</button>
   </form>
 </div>
