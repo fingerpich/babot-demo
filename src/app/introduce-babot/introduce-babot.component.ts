@@ -17,7 +17,8 @@ export class IntroduceBabotComponent implements OnInit {
     "your bot could work on telegram and filan messanger or web.",
   ];
   private wordsSelector = 0;
-
+  private isMenuOpen = false;
+  private isFirstTime = true;
   ngOnInit() {
     // Observable
     //   .interval(2000)
@@ -62,8 +63,15 @@ export class IntroduceBabotComponent implements OnInit {
       //translucent BG to show trail
       ctx.fillStyle = "rgba(0, 0, 50, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
+      // const rg = Math.ceil( Math.random() * 3) + 1;
+      // const b = Math.ceil( Math.random() * 5) + rg;
+      // ctx.fillStyle = "#" + rg + rg + b;
 
-      ctx.fillStyle = "#336";
+      const rg = Math.ceil( Math.random() * 125) + 125;
+      const b = Math.ceil( Math.random() * 55) + 200;
+      const a = Math.random()/6;
+      // ctx.fillStyle = "rgba(" + rg + "," + rg + "," + b + ", " + a + ")";
+      ctx.fillStyle = "rgba(255, 255, 255, " + a + ")";
       ctx.font = font_size + "px arial";
       //looping over drops
       for(var i = 0; i < drops.length; i++)

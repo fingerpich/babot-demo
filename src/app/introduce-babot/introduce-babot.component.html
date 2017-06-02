@@ -5,22 +5,12 @@
       <div class="words">
         <!--<app-paragraphs-typist [paragraphs]="paragraphs" interval="3000"></app-paragraphs-typist>-->
       </div>
-      <div class="flag">
-        <div *ngIf="!showSubscribeForm" (click)="showSubscribeForm=true;">
-          <h5>آیا علاقه مند شدید؟</h5>
-          <small>شما هم به چنین باتی نیاز دارید؟</small>
-        </div>
-        <div class="subscribeForm" *ngIf="showSubscribeForm">
-          <span class="close" (click)="showSubscribeForm=false">x</span>
-          <p>لطفا ایمیل خود را وارد نمایید.</p>
-          <form>
-            <input type="text" (input)="userEmail = $event.target.value" placeholder="email"/>
-            <button type="submit" (click)="sendEmailToSubscribe()">ارسال</button>
-          </form>
-          <div *ngIf="emailHasSent"><small>با تشکر. شما به لیست علاقمندان اضافه شدید و اطلاعات جدید در اختیار شما قرار خواهد گرفت.</small></div>
-          <div class="contactUs"><small>babot@gmail.com</small></div>
-        </div>
-      </div>
+      <!--<div class="flag">-->
+        <!--<div *ngIf="!showSubscribeForm" (click)="showSubscribeForm=true;">-->
+
+        <!--</div>-->
+
+      <!--</div>-->
     </div>
     <!--<div class="botLogo">-->
       <!--<img src="assets/BotFather.png">-->
@@ -31,7 +21,32 @@
           <div class="phoneEar"></div>
         </div>
         <div class="phoneBody">
-        <app-chat></app-chat>
+          <div class="appHead">
+            <div class="menu" [class.open]="isMenuOpen" [class.firstTime]="isFirstTime" (click)="isMenuOpen = !isMenuOpen; isFirstTime = false;">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+          </div>
+          <div class="appInside">
+            <div class="menuContainer" *ngIf="isMenuOpen" dir="rtl">
+              <div>
+                <h3>آیا علاقه مند شدید؟</h3>
+                <small>آیا شما یا اطرافیانتان نیاز به چنین باتی برای کسب و کار خود دارید؟</small>
+                <div class="subscribeForm" >
+                  <!--<span class="close" (click)="showSubscribeForm=false">x</span>-->
+                  <p>لطفا ایمیل خود را وارد نمایید.</p>
+                  <form>
+                    <input type="text" (input)="userEmail = $event.target.value" placeholder="email"/>
+                    <button type="submit" (click)="sendEmailToSubscribe()">ارسال</button>
+                  </form>
+                  <div *ngIf="emailHasSent"><small>با تشکر. شما به لیست علاقمندان اضافه شدید و اطلاعات جدید در اختیار شما قرار خواهد گرفت.</small></div>
+                  <div class="contactUs"><small>babot@gmail.com</small></div>
+                </div>
+              </div>
+            </div>
+            <app-chat [hidden]="isMenuOpen"></app-chat>
+          </div>
         </div>
         <div class="phoneBottom">
           <div class="home"></div>

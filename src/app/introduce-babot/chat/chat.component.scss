@@ -11,7 +11,7 @@
   $textColor:rgba(255,255,255,0.9);
   $borderColor:rgba(255,255,255,0.05);
   & *{
-    font-family:'IRANSansWeb';
+    font-family:'IRANSansWeb', Arial, Helvetica, sans-serif;
   }
   form {
     flex: 0 0 35px;
