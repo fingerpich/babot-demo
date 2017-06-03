@@ -1,4 +1,4 @@
-<canvas #canvas width="100%" height="100%"></canvas>
+<canvas #canvas width="100%" height="100%" (window:resize)="onResize($event)"></canvas>
 <div class="wholePage">
   <div class="container">
     <div class="describe">
@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="appInside">
-            <div class="menuContainer" *ngIf="isMenuOpen" dir="rtl">
+            <div class="menuContainer" dir="rtl" [@pageState]="isMenuOpen?'show':'hide'">
               <div>
                 <h3>آیا علاقه مند شدید؟</h3>
                 <small>آیا شما یا اطرافیانتان نیاز به چنین باتی برای کسب و کار خود دارید؟</small>
@@ -37,7 +37,7 @@
                   <!--<span class="close" (click)="showSubscribeForm=false">x</span>-->
                   <p>لطفا ایمیل خود را وارد نمایید.</p>
                   <form>
-                    <input type="text" (input)="userEmail = $event.target.value" placeholder="email"/>
+                    <input type="email" (input)="userEmail = $event.target.value" placeholder="email"/>
                     <button type="submit" (click)="sendEmailToSubscribe()">ارسال</button>
                   </form>
                   <div *ngIf="emailHasSent"><small>با تشکر. شما به لیست علاقمندان اضافه شدید و اطلاعات جدید در اختیار شما قرار خواهد گرفت.</small></div>
@@ -45,7 +45,9 @@
                 </div>
               </div>
             </div>
-            <app-chat [hidden]="isMenuOpen"></app-chat>
+            <div class="chatContainer" [@pageState]="isMenuOpen?'hide':'show'">
+              <app-chat></app-chat>
+            </div>
           </div>
         </div>
         <div class="phoneBottom">
