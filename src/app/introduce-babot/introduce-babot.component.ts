@@ -37,25 +37,12 @@ export class IntroduceBabotComponent implements OnInit {
   constructor(private element: ElementRef) {
   }
   ngOnInit() {
-    // Observable
-    //   .interval(2000)
-    //   .timeInterval()
-    //   .subscribe(
-    //     (x) => {
-    //       this.wordsSelector = x.value;
-    //     },
-    //     function (err) {
-    //       console.log('Error: ' + err);
-    //     },
-    //     function () {
-    //       console.log('Completed');
-    //     }
-    //   );
+    this.canvas = this.canvas.nativeElement;
     this.initCanvas();
   }
 
   initCanvas() {
-    const canvas = this.canvas.nativeElement;
+    const canvas = this.canvas;
 
     const ctx = canvas.getContext('2d');
 
@@ -112,5 +99,10 @@ export class IntroduceBabotComponent implements OnInit {
     setTimeout(() => {
       this.emailHasSent = true;
     }, 300);
+  }
+
+  onResize($evt) {
+    this.canvas.height = document.body.clientHeight;
+    this.canvas.width = document.body.clientWidth;
   }
 }
