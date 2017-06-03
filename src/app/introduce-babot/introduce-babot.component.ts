@@ -29,8 +29,8 @@ export class IntroduceBabotComponent implements OnInit {
     'your bot could work on telegram and filan messanger or web.',
   ];
   private wordsSelector = 0;
-  private isMenuOpen = false;
-  private isFirstTime = true;
+  public isMenuOpen = false;
+  public isFirstTime = true;
   userEmail: string = '';
   emailHasSent = false;
 
