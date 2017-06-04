@@ -13,7 +13,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
         left: '0%',
       })),
       state('hide', style({
-        left: '100%',
+        left: '-104%',
       })),
       transition('* => show', animate('200ms ease-in')),
       transition('* => hide', animate('200ms ease-out'))
@@ -96,9 +96,12 @@ export class IntroduceBabotComponent implements OnInit {
   }
 
   sendEmailToSubscribe() {
-    setTimeout(() => {
-      this.emailHasSent = true;
-    }, 300);
+    if(/[^@\s]+@[^@\s]+\.[^@\s]+/.test(this.userEmail)) {
+      setTimeout(() => {
+        this.emailHasSent = true;
+      }, 300);
+    }
+    else{}
   }
 
   onResize($evt) {

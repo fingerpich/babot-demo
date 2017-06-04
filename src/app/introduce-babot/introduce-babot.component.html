@@ -36,16 +36,16 @@
                 <div class="subscribeForm" >
                   <!--<span class="close" (click)="showSubscribeForm=false">x</span>-->
                   <p>لطفا ایمیل خود را وارد نمایید.</p>
-                  <form>
-                    <input type="email" (input)="userEmail = $event.target.value" placeholder="email"/>
-                    <button type="submit" (click)="sendEmailToSubscribe()">ارسال</button>
+                  <form (ngSubmit)="sendEmailToSubscribe()">
+                    <input pattern="[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)*" type="email" (input)="userEmail = $event.target.value" placeholder="email"/>
+                    <button type="submit">ارسال</button>
                   </form>
                   <div *ngIf="emailHasSent"><small>با تشکر. شما به لیست علاقمندان اضافه شدید و اطلاعات جدید در اختیار شما قرار خواهد گرفت.</small></div>
                   <div class="contactUs"><small>babot@gmail.com</small></div>
                 </div>
               </div>
             </div>
-            <div class="chatContainer" [@pageState]="isMenuOpen?'hide':'show'">
+            <div class="chatContainer">
               <app-chat></app-chat>
             </div>
           </div>
